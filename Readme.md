@@ -29,7 +29,7 @@
     matricula VARCHAR(20) NOT NULL UNIQUE,
     especialidad VARCHAR(50) NOT NULL
 
-)
+);
 
 CREATE TABLE historial_clinico(
 
@@ -42,3 +42,22 @@ CREATE TABLE historial_clinico(
     descripcion VARCHAR(250) NOT NULL
 
 );
+
+
+INSERT INTO duenos (id,nombre,apellido,telefono,direccion) VALUES
+(1,'Ash', 'Ketchup', 45236848, 'Pueblo paleta'),
+(2,'Gary', 'Oak', 45236040, 'Pueblo paleta'),
+(3,'Misty', 'Kasumi', 45236041, 'ciudad Celeste');
+
+USE veterinaria_patitas_felices;
+
+INSERT INTO mascotas (nombre,especie, fecha_de_nacimiento,dueno_id) VALUES 
+('Pikachu','Electrico', '1996-02-27', 1),
+('Arcanine','Fuego', '1996-04-27', 2),
+('Starmie', 'Agua', '1996-03-27',3)
+
+USE veterinaria_patitas_felices;
+
+INSERT INTO veterinarios (nombre,apellido, matricula, especialidad) VALUES 
+('Profesor','Oak', '4501', 'Iniciales'),
+('Profesor','Abedul', '4502', 'Aventura');
