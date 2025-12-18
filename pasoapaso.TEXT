@@ -1,7 +1,16 @@
+Ejercicio 1 – Crear Base de Datos 
+
 CREATE DATABASE veterinaria_patitas_felices;
 
-USE veterinaria_patitas_felices;
 
+//////////////////////////////////////////////////////////////////////////
+
+
+
+Ejercicio 2 – Crear tabla duenos
+
+
+USE veterinaria_patitas_felices;
 
 CREATE TABLE duenos (
 
@@ -12,6 +21,13 @@ CREATE TABLE duenos (
     direccion VARCHAR (100)
 
 );
+
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+Ejercicio 3 – Crear tabla mascotas
 
 USE veterinaria_patitas_felices;
 
@@ -26,6 +42,13 @@ CREATE TABLE mascotas (
 
 );
 
+
+//////////////////////////////////////////////////////////////////////////
+
+
+
+Ejercicio 4 – Crear tabla veterinarios 
+
 USE veterinaria_patitas_felices;
 
 CREATE TABLE veterinarios (
@@ -38,6 +61,11 @@ CREATE TABLE veterinarios (
 
 );
 
+//////////////////////////////////////////////////////////////////////////
+
+
+
+Ejercicio 5 – Crear tabla historial_clinico
 
 USE veterinaria_patitas_felices;
 CREATE TABLE historial_clinico(
@@ -52,6 +80,10 @@ CREATE TABLE historial_clinico(
 
 );
 
+//////////////////////////////////////////////////////////////////////////
+
+Ejercicio 6 – Insertar registros
+
 USE veterinaria_patitas_felices;
 
 INSERT INTO duenos (id,nombre,apellido,telefono,direccion) VALUES
@@ -60,10 +92,11 @@ INSERT INTO duenos (id,nombre,apellido,telefono,direccion) VALUES
 (3,'Misty', 'Kasumi', 45236041, 'ciudad Celeste');
 
 
+
 INSERT INTO mascotas (nombre,especie, fecha_de_nacimiento,dueno_id) VALUES 
 ('Pikachu','Electrico', '1996-02-27', 1),
 ('Arcanine','Fuego', '1996-04-27', 2),
-('Starmie', 'Agua', '1996-03-27',3);
+('Starmie', 'Agua', '1996-03-27',3)
 
 
 INSERT INTO veterinarios (nombre,apellido, matricula, especialidad) VALUES 
@@ -76,34 +109,56 @@ INSERT INTO historial_clinico (mascota_id, veterinario_id, fecha_de_registro, de
 (2,1,'2025-12-18', 'Tiene una inflamacion en la garganta'),
 (3,2,'2025-12-17', 'Se le rompio un poco el cristal');
 
+
+//////////////////////////////////////////////////////////////////////////
+
+
+Ejercicio 7 – Actualizar registros
+
+USE veterinaria_patitas_felices;
+
 UPDATE duenos SET direccion = 'Hoenn' WHERE id = 2;
 
 SELECT * FROM veterinaria_patitas_felices.veterinarios;
 
 UPDATE veterinarios
 SET especialidad = 'Exterior'
-WHERE matricula = '4502';
+WHERE matricula = '4502'
 
 
 SELECT * FROM veterinaria_patitas_felices.historial_clinico;
 
 UPDATE historial_clinico
 SET descripcion = 'Mejoro de la estatica pero sigue con fiebre'
-WHERE id= 1;
+WHERE id= 1
 
+//////////////////////////////////////////////////////////////////////////
+
+
+Ejercicio 8 – Eliminar registros
 
 DELETE FROM mascotas WHERE id = 2;
+SELECT * FROM veterinaria_patitas_felices.historial_clinico
 
 
-SELECT * FROM veterinaria_patitas_felices.historial_clinico;
+
+//////////////////////////////////////////////////////////////////////////
+
+Ejercicio 9 – JOIN simple
 
 
 SELECT 
 m.nombre , m.especie, 
 CONCAT (d.nombre, ' ', d.apellido) AS dueno_nombre_completo
 FROM mascotas m 
-JOIN duenos d ON m.id = d.id;
+JOIN duenos d ON m.id = d.id
 
+
+
+
+//////////////////////////////////////////////////////////////////////////
+
+Ejercicio 10 – JOIN múltiple con historial 
 
 SELECT 
 CONCAT(m.nombre , ' ', m.especie) AS nombre_y_especie_de_mascota, 
